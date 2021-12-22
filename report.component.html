@@ -1,0 +1,249 @@
+<title>Report</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <div class="container-fluid">
+        <h1 style="text-align: center;font-size: 50px;color:black;">FD AND GOLD LOAN MANAGEMENT</h1><br>
+        <ul class="nav nav-pills nav-justified">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/addadmin">Add Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/glcalculator">Gold Loan Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/fdcalculator">Fixed Deposit Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/fdcustomer">Fixed Deposit Customer Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/glcustomer">Gold Loan Customer Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active " routerLink="/report">Report</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/adminlogin">Logout</a>
+          </li>
+        </ul><br><br><br>
+        <h3 style="color:maroon;">Admin Logged in...</h3>
+        <div style="padding:3% 3%;margin: auto;background-color:lightgoldenrodyellow;">
+        <div class="container-fluid">
+          <h1 style="text-align: center;">REPORT</h1><br><br><br>
+          <h2 style="text-align: center;">Gold Loan Customer Report</h2><br>
+          <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="search">Search By Date Range(Records from Specific date to Present):</label><br>
+                    <input type="date" class="form-control" [(ngModel)]="search.a" placeholder="Select Date Range" id="search" name="search"><br>
+                    <button class="btn btn-info btn-xs" (click)="searchGlBydate(search.a)"><span class="glyphicon glyphicon-remove"></span> Search</button><br>
+                  </div><br>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="search">Search By Month:</label><br>
+                    <input type="month" class="form-control" [(ngModel)]="sear.a" placeholder="Select Month" id="search" name="search"><br>
+                    <button class="btn btn-info btn-xs" (click)="searchGlBymonth(sear.a)"><span class="glyphicon glyphicon-remove"></span> Search</button><br>
+                  </div><br>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="search">Search By Year:</label><br>
+                    <input type="text" class="form-control" [(ngModel)]="se.a" placeholder="Select Year" id="search" name="search"><br>
+                    <button class="btn btn-info btn-xs" (click)="searchGlByyear(se.a)"><span class="glyphicon glyphicon-remove"></span> Search</button><br>
+                  </div><br>
+                </div>
+            </div>
+            <h3 style="text-align: center;">List of Gold Loan Customers</h3>
+                <br>
+                <table class="table table-dark table-responsive">
+                  <thead>
+                  <tr>
+                      <th>GLCID</th>
+                      <th>FirstName</th>
+                      <th>LastName</th>
+                      <th>Address</th>
+                      <th>Date Of Birth</th>
+                      <th>PAN</th>
+                      <th>Gender</th>
+                      <th>KYC</th>
+                      <th>Email</th>
+                      <th>Date of Opening Loan Acc</th>
+                      <th>Month of Opening Loan Acc</th>
+                      <th>Year of Opening Loan Acc</th>
+                      <th>Phone</th>
+                      <th>Co-Applicant</th>
+                      <th>Interest Payment</th>
+                      <th>Type Of Gold Ornaments</th>
+                      <th>Caratage</th>
+                      <th>Net Weight of Gold</th>
+                      <th>Total Value of Ornaments</th>
+                      <th>Eligible Loan Amount</th>
+                      <th>Money Repaid</th>
+                      <th>Money Deposited Now</th>
+                      <th>Balance Amount To be Paid</th>
+                      <th>Status</th>
+                      <th>Delete</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let glcustomer of glcustomers">
+                      <td>{{glcustomer.glcid}}</td>
+                      <td>{{glcustomer.firstname}}</td>
+                      <td>{{glcustomer.lastname}}</td>
+                      <td>{{glcustomer.address}}</td>
+                      <td>{{glcustomer.dob}}</td>
+                      <td>{{glcustomer.pan}}</td>
+                      <td>{{glcustomer.gender}}</td>
+                      <td>{{glcustomer.kyc}}</td>
+                      <td>{{glcustomer.email}}</td>
+                      <td>{{glcustomer.date}}</td>
+                      <td>{{glcustomer.month}}</td>
+                      <td>{{glcustomer.year}}</td>
+                      <td>{{glcustomer.phone}}</td>
+                      <td>{{glcustomer.coapplicant}}</td>
+                      <td>{{glcustomer.interestpayment}}</td>
+                      <td>{{glcustomer.ornament}}</td>
+                      <td>{{glcustomer.carat}}</td>
+                      <td>{{glcustomer.netweight}}</td>
+                      <td>{{glcustomer.totalvalue}}</td>
+                      <td>{{glcustomer.loanamount}}</td>
+                      <td>{{glcustomer.moneyrepaid}}</td>
+                      <td>{{glcustomer.moneydepositednow}}</td>
+                      <td>{{glcustomer.balance}}</td>
+                      <td>{{glcustomer.status}}</td>
+                      <td class="text-center"><button class="btn btn-danger btn-xs" (click)="delGlcustomer(glcustomer.glcid)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+                  </tr>
+                  </tbody>
+              </table><br><br><br><br>
+
+              <h2 style="text-align: center;">Fixed Deposit Customer Report</h2><br>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="search">Search By Date Range(Records from Specific date to Present):</label><br>
+                    <input type="date" class="form-control" [(ngModel)]="search.a" placeholder="Select Date Range" id="search" name="search"><br>
+                    <button class="btn btn-info btn-xs" (click)="searchFdBydate(search.a)"><span class="glyphicon glyphicon-remove"></span> Search</button><br>
+                  </div><br>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="search">Search By Month:</label><br>
+                    <input type="month" class="form-control" [(ngModel)]="sear.a" placeholder="Select Month" id="search" name="search"><br>
+                    <button class="btn btn-info btn-xs" (click)="searchFdBymonth(sear.a)"><span class="glyphicon glyphicon-remove"></span> Search</button><br>
+                  </div><br>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="search">Search By Year:</label><br>
+                    <input type="text" class="form-control" [(ngModel)]="se.a" placeholder="Select Year" id="search" name="search"><br>
+                    <button class="btn btn-info btn-xs" (click)="searchFdByyear(se.a)"><span class="glyphicon glyphicon-remove"></span> Search</button><br>
+                  </div><br>
+                </div>
+            </div>
+            <h3 style="text-align: center;">List of FD Customers</h3>
+                <br>
+                <table class="table table-dark table-responsive">
+                  <thead>
+                  <tr>
+                      <th>FDCID</th>
+                      <th>FirstName</th>
+                      <th>LastName</th>
+                      <th>Address</th>
+                      <th>Date Of Birth</th>
+                      <th>PAN</th>
+                      <th>Gender</th>
+                      <th>KYC</th>
+                      <th>Email</th>
+                      <th>Date of Opening Acc</th>
+                      <th>Month of Opening Acc</th>
+                      <th>Year of Opening Acc</th>
+                      <th>Phone</th>
+                      <th>Join Applicant</th>
+                      <th>Deposit Amount</th>
+                      <th>Time Period in Month</th>
+                      <th>Nominee</th>
+                      <th>Rate Of Interest</th>
+                      <th>Interest Payout</th>
+                      <th>Amount Available</th>
+                      <th>Amount Withdrawn</th>
+                      <th>Amount Withdrawn Date</th>
+                      <th>Balance Amount</th>
+                      <th>Status</th>
+                      <th>Delete</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let fdcustomer of fdcustomers">
+                      <td>{{fdcustomer.fdcid}}</td>
+                      <td>{{fdcustomer.firstname}}</td>
+                      <td>{{fdcustomer.lastname}}</td>
+                      <td>{{fdcustomer.address}}</td>
+                      <td>{{fdcustomer.dob}}</td>
+                      <td>{{fdcustomer.pan}}</td>
+                      <td>{{fdcustomer.gender}}</td>
+                      <td>{{fdcustomer.kyc}}</td>
+                      <td>{{fdcustomer.email}}</td>
+                      <td>{{fdcustomer.date}}</td>
+                      <td>{{fdcustomer.month}}</td>
+                      <td>{{fdcustomer.year}}</td>
+                      <td>{{fdcustomer.phone}}</td>
+                      <td>{{fdcustomer.joinapplicant}}</td>
+                      <td>{{fdcustomer.principal}}</td>
+                      <td>{{fdcustomer.period}}</td>
+                      <td>{{fdcustomer.nominee}}</td>
+                      <td>{{fdcustomer.rate}}</td>
+                      <td>{{fdcustomer.payout}}</td>
+                      <td>{{fdcustomer.amountavailable}}</td>
+                      <td>{{fdcustomer.amountwithdrawn}}</td>
+                      <td>{{fdcustomer.amountwithdrawndate}}</td>
+                      <td>{{fdcustomer.balance}}</td>
+                      <td>{{fdcustomer.status}}</td>
+                      <td class="text-center"><button class="btn btn-danger btn-xs" (click)="delFdcustomer(fdcustomer.fdcid)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+                  </tr>
+                  </tbody>
+              </table><br><br><br><br>
+
+              <h3 style="text-align: center;">List of Gold Loan Payment Details</h3>
+                <br>
+                <table class="table table-dark table-responsive-sm">
+                  <thead>
+                  <tr>
+                      <th>GLCID</th>
+                      <th>FirstName</th>
+                      <th>LastName</th>
+                      <th>Address</th>
+                      <th>Eligible Loan Amount</th>
+                      <th>Money Repaid</th>
+                      <th>Balance Amount To be Paid</th>
+                      <th>Status</th>
+                      <th>Delete</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let glcust of glcusts">
+                      <td>{{glcust.glcid}}</td>
+                      <td>{{glcust.firstname}}</td>
+                      <td>{{glcust.lastname}}</td>
+                      <td>{{glcust.address}}</td>
+                      <td>{{glcust.loanamount}}</td>
+                      <td>{{glcust.moneyrepaid}}</td>
+                      <td>{{glcust.balance}}</td>
+                      <td>{{glcust.status}}</td>
+                      <td class="text-center"><button class="btn btn-danger btn-xs" (click)="delGlcustomer(glcust.glcid)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+                  </tr>
+                  </tbody>
+              </table><br><br><br><br>
+
+
+        </div> 
+        </div> 
+    </div>    
