@@ -1,0 +1,29 @@
+export class Glcustomer{
+    constructor(
+        glcid:number,
+        firstname:string,
+        lastname:string,
+        address:string,
+        dob:string,
+        pan:string,
+        gender:string,
+        kyc:string,
+        email:string,
+        date:string,
+        month:string,
+        year:string,
+        phone:string,
+        coapplicant:string,
+        interestpayment:string,
+        ornament:string,
+        carat:string,
+        netweight:number,
+        totalvalue:number,
+        loanamount:number,
+        moneyrepaid:number,
+        moneydepositednow:number,
+        balance:number,
+        status:string
+        ){}
+    }
+

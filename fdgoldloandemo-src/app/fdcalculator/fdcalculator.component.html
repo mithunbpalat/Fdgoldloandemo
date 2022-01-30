@@ -1,0 +1,86 @@
+<title>Fixed Deposit Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <div class="container-fluid">
+        <h1 style="text-align: center;font-size: 50px;color:black;">FD AND GOLD LOAN MANAGEMENT</h1><br>
+        <ul class="nav nav-pills nav-justified">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/addadmin">Add Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/glcalculator">Gold Loan Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/fdcalculator">Fixed Deposit Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/fdcustomer">Fixed Deposit Customer Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/glcustomer">Gold Loan Customer Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/report">Report</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/adminlogin">Logout</a>
+          </li>
+        </ul><br><br><br>
+        <h3 style="color:maroon;">Admin Logged in...</h3>
+        <div style="padding:3% 3%;margin: auto;background-color:lightgoldenrodyellow;">
+            <div class="container-fluid">
+                <h1 style="text-align: center;">FIXED DEPOSIT CALCULATOR</h1><br>
+                <div class="row">
+                <div class="col-sm-8">
+                  <div style="margin:auto;border:2px solid white;border-radius:5px;padding: 10px;">
+                    <h3 style="text-align: center;">Fixed Deposit Calculator(All information required*)</h3>
+                      <form action="#" post="method">
+                        <div class="form-group">
+                          <label for="principal">Fixed Deposit Amount:</label><br>
+                          <input type="number" class="form-control" [(ngModel)]="fd.principal" placeholder="Enter Fixed Deposit Amount" id="principal" name="principal" required>
+                        </div><br>  
+                          <div class="form-group">
+                              <label for="rate">Rate Of Interest:</label><br>
+                              <input type="number" class="form-control" [(ngModel)]="fd.rate" placeholder="Enter Rate Of Interest" id="rate" name="rate" required>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="period">How Long Do You Want To Save(in Months):</label><br>
+                                <input type="number" class="form-control" [(ngModel)]="fd.period" placeholder="Enter Time Period in Months" id="period" name="period" required>
+                              </div><br>
+                            
+                            <button class="btn btn-info" style="width:45%;font-size:30px;color:white;" (click)="calculate(fd.principal,fd.rate,fd.period)">Calculate</button>
+                          <input type="submit" class="btn btn-primary" style="width:45%;font-size:30px;background-color:blue;color:white;" value="Reset" (click)="reset()">
+                              <br><br>
+                              <h2 style="text-align: center;">Fixed Deposit Return</h2>
+                              <table class="table table-dark table-responsive-sm">
+                                  <thead>
+                                      <tr>
+                                          <th>Principal Amount</th>
+                                          <th>Maturity Amount</th>
+                                          <th>Interest Amount</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td>Rs {{fd.principal}}</td>
+                                          <td>Rs {{fd.amount}}</td>
+                                          <td>Rs {{fd.interest}}</td>
+                                      </tr>
+                                  </tbody>
+
+                              </table>
+                      </form>
+                      </div>
+                    </div><br><br><br><br><br>
+
+
+        </div>
+    </div>

@@ -1,0 +1,84 @@
+<title>Gold Loan Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <div class="container-fluid">
+        <h1 style="text-align: center;font-size: 50px;color:black;">FD AND GOLD LOAN MANAGEMENT</h1><br>
+        <ul class="nav nav-pills nav-justified">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/addadmin">Add Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/glcalculator">Gold Loan Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/fdcalculator">Fixed Deposit Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/fdcustomer">Fixed Deposit Customer Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/glcustomer">Gold Loan Customer Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/report">Report</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/adminlogin">Logout</a>
+          </li>
+        </ul><br><br><br>
+        <h3 style="color:maroon;">Admin Logged in...</h3>
+        <div style="padding:3% 3%;margin: auto;background-color:lightgoldenrodyellow;">
+            <div class="container-fluid">
+                <h1 style="text-align: center;">GOLD LOAN CALCULATOR</h1><br>
+                <div class="row">
+                <div class="col-sm-8">
+                  <div style="margin:auto;border:2px solid white;border-radius:5px;padding: 10px;">
+                    <h3 style="text-align: center;">Gold Loan Calculator(All information required*)</h3>
+                      <form action="#" post="method">
+                        <div class="form-group">
+                          <label for="oname">Ornament Name:</label><br>
+                          <input type="text" class="form-control" [(ngModel)]="ornament.name" placeholder="Enter Ornament Name" id="oname" name="oname" required>
+                        </div><br>  
+                          <div class="form-group">
+                              <label for="weight">Net Weight:</label><br>
+                              <input type="number" class="form-control" [(ngModel)]="ornament.weight" placeholder="Enter Net Weight" id="weight" name="weight" required>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="carat">Caratage:</label><br>
+                                <select name="carat" id="carat" class="custom-select" [(ngModel)]="ornament.carat" required>
+                                  <option selected value="24">24 Carat Gold</option>
+                                  <option value="22">22 Carat Gold</option>
+                                  <option value="20">20 Carat Gold</option>
+                                  <option value="18">18 Carat Gold</option>
+                                </select>
+                            </div><br>
+                            <button class="btn btn-info" style="width:45%;font-size:30px;color:white;" (click)="calculator(ornament.weight, ornament.carat)">Calculate</button><br><br>
+
+                            <div class="form-group">
+                              <label for="value">Total Value Of Ornament:</label><br>
+                              <input type="number" class="form-control" [(ngModel)]="ornament.value" placeholder="Total Value Of Ornament" id="value" name="value" >
+                            </div><br>
+                            <div class="form-group">
+                              <label for="loan">Eligible Loan Amount:</label><br>
+                              <input type="number" class="form-control" [(ngModel)]="ornament.loan" placeholder="Eligible Loan Amount" id="loan" name="loan">
+                            </div><br>
+                            <br>
+                            <h2>Gross Total Value of Ornament : Rs {{ornament.value}}</h2><br>
+                            <h2>Eligible Loan Amount : Rs {{ornament.loan}}</h2><br>
+                          <input type="submit" class="btn btn-primary" style="width:45%;font-size:30px;background-color:blue;color:white;" (click)="reset()" value="Reset">
+                      
+                      </form>
+                      </div>
+                    </div><br><br><br><br><br>
+
+
+        </div>
+    </div>
